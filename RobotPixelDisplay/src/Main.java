@@ -3,6 +3,7 @@ import java.awt.image.*;
 import java.io.*;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 //this is a test
 public class Main {
@@ -43,7 +44,6 @@ public class Main {
 		image.setData(raster);
 	    return image;
 	}
-
 	  public static void main(String[] args) throws IOException
 	  {
 	    JFrame jf = new JFrame();
@@ -65,14 +65,9 @@ public class Main {
 	    	for (int i = 0; i < HEIGHT; i++)
 		    {
 	    		for (int j = 0; j < WIDTH; j++) {
-	    			
-	    			if (i == 12 && j == 12)
-	    			{
-	    				arrayimage[i][j].setColor(0);
-	    			}
-	    			else
-		    	  	arrayimage[i][j].setColor(tick + HEIGHT * i + HEIGHT * j);
-		    	  	//System.out.println(pix);
+	    			//arrayimage[i][j].pulsateCircular(tick,i,j);
+	    			arrayimage[i][j].pulsateDiagonal(tick, i, j);
+	    			//arrayimage[i][j].randomNoise();
 	    		}
 		    }
 		    ImageIcon ii = new ImageIcon(getPixelatedImageFromArray(arrayimage, WIDTH, HEIGHT));

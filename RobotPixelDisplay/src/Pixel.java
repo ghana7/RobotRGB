@@ -1,4 +1,9 @@
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Pixel {
 	private int red;
@@ -34,8 +39,32 @@ public class Pixel {
 		blue = 128 + (int)(127 * Math.sin(frequency * input + frequency * 216));
 		green = 128 + (int)(127 * Math.sin(frequency * input + frequency * 432));
 	}
-	public void setColorForColors(Color c)
-	{
+	public void setColor(int _red, int _green, int _blue) {
+		red = _red;
+		green = _green;
+		blue = _blue;
+	}
+	public void toGrayScale() {
+		int sum = red + green + blue;
+		red = sum/3;
+		green = sum/3;
+		blue = sum/3;
+	}
+	public void pulsateCircular(int tick, int x, int y) {
+		setColor(648 - tick + 16 * (int)(1 + Math.abs(x - 8.5) + Math.abs(y - 8.5)));
+	}
+	public void pulsateDiagonal(int tick, int x, int y) {
+		setColor(tick + 16 * x + 16 * y);
+	}
+	public void randomNoise() {
+		setColor((int)(Math.random() * 256),(int)(Math.random() * 256),(int)(Math.random() * 256));
+	}
+	public void showImage() {
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File("strawberry.jpg"));
+		} catch (IOException e) {
+		}
 		
 	}
 }
