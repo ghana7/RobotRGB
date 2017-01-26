@@ -65,6 +65,12 @@ public class Main {
 	    	for (int i = 0; i < HEIGHT; i++)
 		    {
 	    		for (int j = 0; j < WIDTH; j++) {
+	    			
+	    			if (i == 12 && j == 12)
+	    			{
+	    				arrayimage[i][j].setColor(0);
+	    			}
+	    			else
 		    	  	arrayimage[i][j].setColor(tick + HEIGHT * i + HEIGHT * j);
 		    	  	//System.out.println(pix);
 	    		}
@@ -75,7 +81,7 @@ public class Main {
 		    jf.pack();
 		    jf.setVisible(true);
 		    try {
-				TimeUnit.MILLISECONDS.sleep(10);
+				TimeUnit.MILLISECONDS.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

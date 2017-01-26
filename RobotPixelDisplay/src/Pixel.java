@@ -1,3 +1,4 @@
+import java.awt.Color;
 
 public class Pixel {
 	private int red;
@@ -32,5 +33,9 @@ public class Pixel {
 		red = 128 + (int)(127 * Math.sin(frequency * input));
 		blue = 128 + (int)(127 * Math.sin(frequency * input + frequency * 216));
 		green = 128 + (int)(127 * Math.sin(frequency * input + frequency * 432));
+	}
+	public void setColorForColors(Color c)
+	{
+		
 	}
 }
