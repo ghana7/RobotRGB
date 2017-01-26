@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.*;
-
+//this is a test
 public class Main {
 	public static Image getImageFromArray(int[] pixels, int width, int height)
 	  {
