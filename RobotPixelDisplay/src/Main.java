@@ -40,48 +40,12 @@ public class Main {
 		image.setData(raster);
 		return image;
 	}
-	public static void moveBounce(int bounceDir, int bounceX, int bounceY) {
-		//0 - top left, 1 - top right, 2 - bottom right, 3 - bottom left
-		if(bounceX == 0) {
-			bounceDir = 3 - bounceDir;
-		}
-		if(bounceX == 17) {
-			bounceDir = 3 - bounceDir;
-		}
-		if(bounceY == 0) {
-			bounceDir = 1 - bounceDir;
-		}
-		if(bounceY == 17) {
-			bounceDir = 5 - bounceDir;
-		}
-		switch(bounceDir) {
-		case 0:
-			bounceX--;
-			bounceY--;
-			break;
-		case 1:
-			bounceX++;
-			bounceY--;
-			break;
-		case 2:
-			bounceX++;
-			bounceY++;
-			break;
-		case 3:
-			bounceX--;
-			bounceY++;
-			break;
-		}
-	}
 	public static void main(String[] args) throws IOException {
 		JFrame jf = new JFrame();
 		JLabel jl = new JLabel();
 		int tick = 0;
 		int WIDTH = 18;
 		int HEIGHT = 18;
-		int bounceDir = 0;
-		int bounceX = 5;
-		int bounceY = 10;
 
 		Pixel[][] arrayimage = new Pixel[HEIGHT][WIDTH];
 		for (int i = 0; i < HEIGHT; i++) {
@@ -92,15 +56,13 @@ public class Main {
 		Pixel pix = new Pixel(0, 0, 0);
 		while (true) {
 			tick = (++tick) % 648;
-			moveBounce(bounceDir,bounceX,bounceY);
 			for (int i = 0; i < HEIGHT; i++) {
 				for (int j = 0; j < WIDTH; j++) {
 					// arrayimage[i][j].pulsateCircular(tick,i,j);
 					// arrayimage[i][j].pulsateDiagonal(tick,i,j);
-					// arrayimage[i][j].randomNoise();
+					 arrayimage[i][j].randomNoise();
 					// arrayimage[i][j].movingSpiral(tick,i,j,20);
 					// arrayimage[i][j].sparkle(0.00002);
-					arrayimage[i][j].drawColor(i,j,bounceX,bounceY);
 				}
 			}
 			ImageIcon ii = new ImageIcon(getPixelatedImageFromArray(arrayimage, WIDTH, HEIGHT));

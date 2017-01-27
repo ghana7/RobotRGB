@@ -95,6 +95,7 @@ public class Pixel {
 			setColor(0,0,0);
 		}
 	}
+	
 	public void randomNoise() {
 		setColor((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
 	}
